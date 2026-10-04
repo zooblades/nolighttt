@@ -5,6 +5,7 @@
 	"name": "Not Enough Shades",
 	"description": "Removes directional shading from blocks and entities.",
 	"authors": ["nazarbatrider"],
+	"icon": "assets/nolight/icon.png",
 	"license": "CC0-1.0",
 	"environment": "client",
 	"mixins": [
