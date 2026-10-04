@@ -1,0 +1,11 @@
+{
+	"required": true,
+	"package": "local.nolight.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"client": [
+		"NoShadeMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

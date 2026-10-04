@@ -1,0 +1,21 @@
+{
+	"schemaVersion": 1,
+	"id": "nolight",
+	"version": "${version}",
+	"name": "No Shading",
+	"description": "Removes directional shading from blocks and entities.",
+	"authors": ["you"],
+	"license": "CC0-1.0",
+	"environment": "client",
+	"mixins": [
+		{
+			"config": "nolight.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.19.5",
+		"minecraft": "~1.21.11",
+		"java": ">=21"
+	}
+}

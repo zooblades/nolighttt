@@ -1,0 +1,45 @@
+name: Build mod
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Download Minecraft 1.21.11 client jar
+        run: |
+          python - <<'PY'
+          import json, urllib.request
+          get = lambda u: urllib.request.urlopen(u).read()
+          manifest = json.loads(get("https://piston-meta.mojang.com/mc/game/version_manifest_v2.json"))
+          url = next(v["url"] for v in manifest["versions"] if v["id"] == "1.21.11")
+          client = json.loads(get(url))["downloads"]["client"]["url"]
+          open("client.jar", "wb").write(get(client))
+          PY
+
+      - name: Patch entity lighting shader
+        run: python patch_light.py client.jar
+
+      - name: Build
+        run: |
+          chmod +x gradlew
+          ./gradlew build --no-daemon
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nolight-mod
+          path: |
+            build/libs/*.jar
+            !build/libs/*-sources.jar
