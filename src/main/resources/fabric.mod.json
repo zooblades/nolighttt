@@ -2,7 +2,7 @@
 	"schemaVersion": 1,
 	"id": "nolight",
 	"version": "${version}",
-	"name": "Not Enough Shadows",
+	"name": "Not Enough Shades",
 	"description": "Removes directional shading from blocks and entities.",
 	"authors": ["nazarbatrider"],
 	"license": "CC0-1.0",
