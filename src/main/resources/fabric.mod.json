@@ -3,7 +3,7 @@
 	"id": "nolight",
 	"version": "${version}",
 	"name": "Not Enough Shades",
-	"description": "Removes directional shading from blocks and entities.",
+	"description": "Removes the directional face shading from blocks and entities. Every side of a block and every mob is lit evenly, giving the world a flat, uniform look. Light levels, day and night darkness are not affected.",
 	"authors": ["nazarbatrider"],
 	"icon": "assets/nolight/icon.png",
 	"license": "CC0-1.0",
