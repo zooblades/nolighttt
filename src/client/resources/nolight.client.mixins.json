@@ -3,7 +3,7 @@
 	"package": "local.nolight.mixin",
 	"compatibilityLevel": "JAVA_25",
 	"client": [
-		"NoShadeMixin"
+		"NoCardinalMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
