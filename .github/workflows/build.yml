@@ -24,7 +24,7 @@ jobs:
           import json, urllib.request
           get = lambda u: urllib.request.urlopen(u).read()
           manifest = json.loads(get("https://piston-meta.mojang.com/mc/game/version_manifest_v2.json"))
-          url = next(v["url"] for v in manifest["versions"] if v["id"] == "26.2")
+          url = next(v["url"] for v in manifest["versions"] if v["id"] == "26.3")
           client = json.loads(get(url))["downloads"]["client"]["url"]
           open("client.jar", "wb").write(get(client))
           PY
