@@ -18,13 +18,13 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: "9.7.1"
-      - name: Download Minecraft 1.21.11 client jar
+      - name: Download Minecraft 1.21.1 client jar
         run: |
           python - <<'PY'
           import json, urllib.request
           get = lambda u: urllib.request.urlopen(u).read()
           manifest = json.loads(get("https://piston-meta.mojang.com/mc/game/version_manifest_v2.json"))
-          url = next(v["url"] for v in manifest["versions"] if v["id"] == "1.21.11")
+          url = next(v["url"] for v in manifest["versions"] if v["id"] == "1.21.1")
           client = json.loads(get(url))["downloads"]["client"]["url"]
           open("client.jar", "wb").write(get(client))
           PY
